@@ -14,7 +14,14 @@
         myat: myat {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp RIGHT_ALT &kp NUMBER_2>;
+            bindings =
+                <&macro_press>,
+                <&kp RIGHT_ALT>,
+                <&macro_tap>,
+                <&kp NUMBER_2>,
+                <&macro_release>,
+                <&kp RIGHT_ALT>;
+
             label = "MYAT";
         };
     };
