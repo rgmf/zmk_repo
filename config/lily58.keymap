@@ -46,7 +46,7 @@
                 <&macro_press>,
                 <&kp RIGHT_ALT>,
                 <&macro_tap>,
-                <&kp TILDE>,
+                <&kp NON_US_HASH>,
                 <&macro_release>,
                 <&kp RIGHT_ALT>;
 
@@ -88,11 +88,25 @@
                 <&macro_press>,
                 <&kp LSHIFT>,
                 <&macro_tap>,
-                <&kp BACKSLASH>,
+                <&kp NUBS>,
                 <&macro_release>,
                 <&kp LEFT_SHIFT>;
 
             label = "MYLT";
+        };
+
+        mybackslash: mybackslash {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp RIGHT_ALT>,
+                <&macro_tap>,
+                <&kp GRAVE>,
+                <&macro_release>,
+                <&kp RIGHT_ALT>;
+
+            label = "MYBACKSLASH";
         };
     };
 
@@ -129,7 +143,7 @@
             bindings = <
 &bt BT_CLR  &bt BT_SEL 0      &bt BT_SEL 1       &bt BT_SEL 2       &bt BT_SEL 3  &bt BT_SEL 4                    &trans   &trans       &trans         &trans   &trans   &trans
 &kp F1      &kp F2            &kp F3             &kp F4             &kp F5        &kp F6                          &kp F7   &kp F8       &kp F9         &kp F10  &kp F11  &kp F12
-&kp GRAVE   &kp TILDE         &myat              &kp BACKSLASH      &mygt         &kp HOME                        &kp END  &mylbrc      &myrbrc        &mylbkt  &myrbkt  &trans
+&kp GRAVE   &kp TILDE         &myat              &kp NUBS           &mygt         &kp HOME                        &kp END  &mylbrc      &myrbrc        &mylbkt  &myrbkt  &mybackslash
 &trans      &ext_power EP_ON  &ext_power EP_OFF  &ext_power EP_TOG  &trans        &trans        &trans    &trans  &trans   &kp PAGE_UP  &kp PAGE_DOWN  &trans   &trans   &trans
                                                  &trans             &trans        &trans        &trans    &trans  &trans   &trans       &trans
             >;
