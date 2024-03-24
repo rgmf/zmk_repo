@@ -150,6 +150,48 @@
 
             label = "MYLQUESTION";
         };
+
+        emacs_sel: emacs_sel {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LCTRL>,
+                <&macro_tap>,
+                <&kp SPACE>,
+                <&macro_release>,
+                <&kp LCTRL>;
+
+            label = "EMACS_SEL";
+        };
+
+        emacs_start: emacs_start {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_ALT>,
+                <&macro_tap>,
+                <&kp NUBS>,
+                <&macro_release>,
+                <&kp LEFT_ALT>;
+
+            label = "EMACS_START";
+        };
+
+        emacs_end: emacs_end {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_ALT &kp LEFT_SHIFT>,
+                <&macro_tap>,
+                <&kp NUBS>,
+                <&macro_release>,
+                <&kp LEFT_ALT &kp LEFT_SHIFT>;
+
+            label = "EMACS_END";
+        };
     };
 
     keymap {
@@ -183,11 +225,11 @@
             //                     |      |      |      |        |  |       |      |       |       |
 
             bindings = <
-&bt BT_CLR  &bt BT_SEL 0      &bt BT_SEL 1       &bt BT_SEL 2       &bt BT_SEL 3  &bt BT_SEL 4                    &trans   &trans       &trans         &trans   &trans     &trans
-&kp F1      &kp F2            &kp F3             &kp F4             &kp F5        &kp F6                          &kp F7   &kp F8       &kp F9         &kp F10  &kp EQUAL  &mylquestion
-&kp GRAVE   &kp TILDE         &myat              &kp NUBS           &mygt         &kp HOME                        &kp END  &mylbrc      &myrbrc        &mylbkt  &myrbkt    &mybackslash
-&trans      &ext_power EP_ON  &ext_power EP_OFF  &ext_power EP_TOG  &trans        &trans        &trans    &trans  &trans   &kp PAGE_UP  &kp PAGE_DOWN  &trans   &trans     &trans
-                                                 &trans             &trans        &trans        &trans    &trans  &trans   &trans       &trans
+&bt BT_CLR  &bt BT_SEL 0      &bt BT_SEL 1       &bt BT_SEL 2       &bt BT_SEL 3  &bt BT_SEL 4                    &trans    &kp K_MUTE      &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC
+&kp F1      &kp F2            &kp F3             &kp F4             &kp F5        &kp F6                          &kp F7    &kp PAGE_UP     &kp UP_ARROW       &kp PAGE_DOWN    &kp EQUAL             &mylquestion
+&kp GRAVE   &kp TILDE         &myat              &kp NUBS           &mygt         &emacs_sel                      &kp HOME  &kp LEFT_ARROW  &kp DOWN_ARROW     &kp RIGHT_ARROW  &kp END               &mybackslash
+&trans      &ext_power EP_ON  &ext_power EP_OFF  &ext_power EP_TOG  &trans        &trans        &trans    &trans  &trans    &mylbrc         &myrbrc            &mylbkt          &myrbkt               &trans
+                                                 &trans             &trans        &trans        &trans    &trans  &trans    &trans          &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -202,11 +244,11 @@
             //                     |      |      |      |        |  |       |      |       |       |
 
             bindings = <
-&trans  &myslash  &trans  &myhashtag  &trans   &trans                     &trans       &trans    &trans        &trans          &trans     &trans
-&trans  &kp N1    &kp N2  &kp N3      &kp N4   &kp N5                     &kp N6       &kp N7    &kp N8        &kp N9          &kp N0     &trans
-&kp F1  &kp F2    &kp F3  &kp F4      &kp F5   &kp F6                     &kp PAGE_UP  &kp LEFT  &kp UP_ARROW  &kp DOWN_ARROW  &kp RIGHT  &kp PAGE_DOWN
-&kp F7  &kp F8    &kp F9  &kp F10     &kp F11  &kp F12  &trans    &trans  &kp KP_PLUS  &trans    &kp PAGE_UP   &kp PAGE_DOWN   &trans     &trans
-                          &trans      &trans   &trans   &trans    &trans  &trans       &trans    &trans
+&trans  &myslash  &trans  &myhashtag  &trans   &trans                     &trans       &trans      &trans        &trans      &trans  &trans
+&trans  &kp N1    &kp N2  &kp N3      &kp N4   &kp N5                     &kp N6       &kp N7      &kp N8        &kp N9      &kp N0  &trans
+&kp F1  &kp F2    &kp F3  &kp F4      &kp F5   &kp F6                     &trans       &emacs_sel  &emacs_start  &emacs_end  &trans  &trans
+&kp F7  &kp F8    &kp F9  &kp F10     &kp F11  &kp F12  &trans    &trans  &kp KP_PLUS  &trans      &trans        &trans      &trans  &trans
+                          &trans      &trans   &trans   &trans    &trans  &trans       &trans      &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
