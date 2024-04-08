@@ -212,11 +212,11 @@
             #binding-cells = <0>;
             bindings =
                 <&macro_press>,
-                <&kp LEFT_CONTROL>,
+                <&kp LEFT_CONTROL &kp LEFT_SHIFT>,
                 <&macro_tap>,
-                <&mygt>,
+                <&kp NUBS>,
                 <&macro_release>,
-                <&kp LEFT_CONTROL>;
+                <&kp LEFT_CONTROL &kp LEFT_SHIFT>;
 
             label = "EMACS_MC_D";
         };
